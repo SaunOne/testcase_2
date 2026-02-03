@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ITM001",
+    "name": "Karkas Frozen Dada",
+    "sku": "12341",
+    "uomType": "Weight",
+    "availableQty": 100,
+    "weightPerPack": 10,
+    "condition": "Good",
+    "batch": "BTH-2024-001",
+    "stock": {
+      "soh": { "pack": 5, "kg": 50 },
+      "allocated": { "pack": 5, "kg": 50 },
+      "blocked": { "pack": 5, "kg": 50 },
+      "picked": { "pack": 5, "kg": 50 },
+      "damage": { "pack": 5, "kg": 50 },
+      "available": { "pack": 5, "kg": 50 }
+    }
+  },
+  {
+    "id": "ITM002",
+    "name": "Karkas Frozen Paha",
+    "sku": "12342",
+    "uomType": "Weight",
+    "availableQty": 80,
+    "weightPerPack": 8,
+    "condition": "Good",
+    "batch": "BTH-2024-002",
+    "stock": {
+      "soh": { "pack": 10, "kg": 80 },
+      "allocated": { "pack": 3, "kg": 24 },
+      "blocked": { "pack": 2, "kg": 16 },
+      "picked": { "pack": 1, "kg": 8 },
+      "damage": { "pack": 0, "kg": 0 },
+      "available": { "pack": 4, "kg": 32 }
+    }
+  },
+  {
+    "id": "ITM003",
+    "name": "Karkas Frozen Sayap",
+    "sku": "12343",
+    "uomType": "Pack",
+    "availableQty": 50,
+    "weightPerPack": 5,
+    "condition": "Good",
+    "batch": "BTH-2024-003",
+    "stock": {
+      "soh": { "pack": 20, "kg": 100 },
+      "allocated": { "pack": 8, "kg": 40 },
+      "blocked": { "pack": 2, "kg": 10 },
+      "picked": { "pack": 5, "kg": 25 },
+      "damage": { "pack": 1, "kg": 5 },
+      "available": { "pack": 4, "kg": 20 }
+    }
+  },
+  {
+    "id": "ITM004",
+    "name": "Karkas Frozen Leher",
+    "sku": "12344",
+    "uomType": "Pack",
+    "availableQty": 120,
+    "weightPerPack": 3,
+    "condition": "Good",
+    "batch": "BTH-2024-004",
+    "stock": {
+      "soh": { "pack": 40, "kg": 120 },
+      "allocated": { "pack": 10, "kg": 30 },
+      "blocked": { "pack": 5, "kg": 15 },
+      "picked": { "pack": 8, "kg": 24 },
+      "damage": { "pack": 2, "kg": 6 },
+      "available": { "pack": 15, "kg": 45 }
+    }
+  },
+  {
+    "id": "ITM005",
+    "name": "Karkas Frozen Kepala",
+    "sku": "12345",
+    "uomType": "Pack",
+    "availableQty": 200,
+    "weightPerPack": 2,
+    "condition": "Good",
+    "batch": "BTH-2024-005",
+    "stock": {
+      "soh": { "pack": 100, "kg": 200 },
+      "allocated": { "pack": 30, "kg": 60 },
+      "blocked": { "pack": 10, "kg": 20 },
+      "picked": { "pack": 20, "kg": 40 },
+      "damage": { "pack": 5, "kg": 10 },
+      "available": { "pack": 35, "kg": 70 }
+    }
+  }
+]
