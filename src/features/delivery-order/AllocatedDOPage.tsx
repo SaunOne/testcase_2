@@ -9,33 +9,39 @@ import {
 
 export function AllocatedDOPage() {
   return (
-    <div className="space-y-6">
-      <Card>
-        {/* Tabs dalam Card */}
-        <Card padding="none">
-          <TabsSection />
-        </Card>
+    <Card className="flex flex-col min-h-[calc(100vh-10rem)]">
+      {/* Tabs */}
+      <TabsSection />
 
-        {/* Info Alert */}
+      {/* Info Alert */}
+      <div className="mt-4">
         <Alert variant="info">
           Please input items to order based on UOM type
         </Alert>
+      </div>
 
-        {/* Form Section - sudah ada Card di dalamnya */}
+      {/* Form Section */}
+      <div className="mt-6">
         <FormSection />
+      </div>
 
-        {/* Table Section dalam Card */}
-
+      {/* Table Section - flex-1 to push footer to bottom */}
+      <div className="mt-6 flex-1">
         <TableSection />
+      </div>
 
-        {/* Summary & Footer */}
-        <div className="flex justify-between items-end">
-          <div className="flex-1">
-            <FooterSection />
+      {/* Footer - inside Card, at bottom */}
+      <div className="mt-6 pt-6 border-t border-gray-200 flex flex-col gap-4">
+        <div className="flex justify-end">
+          <div className="w-72">
+            <SummarySection />
           </div>
-          <SummarySection />
         </div>
-      </Card>
-    </div>
+
+        <div className="flex gap-4 w-full">
+          <FooterSection />
+        </div>
+      </div>
+    </Card>
   )
 }
