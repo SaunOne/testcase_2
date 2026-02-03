@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import clsx from 'clsx';
+import { useState } from "react"
+import { NavLink, useLocation } from "react-router-dom"
+import clsx from "clsx"
 import {
   HiOutlineViewGrid,
   HiOutlineDownload,
@@ -10,84 +10,78 @@ import {
   HiOutlineDatabase,
   HiOutlineChevronDown,
   HiOutlineChevronRight,
-} from 'react-icons/hi';
+} from "react-icons/hi"
 
 interface MenuItem {
-  name: string;
-  icon: React.ReactNode;
-  path?: string;
-  children?: { name: string; path: string }[];
+  name: string
+  icon: React.ReactNode
+  path?: string
+  children?: { name: string; path: string }[]
 }
 
 const menuItems: MenuItem[] = [
   {
-    name: 'Dashboard',
+    name: "Dashboard",
     icon: <HiOutlineViewGrid className="w-5 h-5" />,
-    path: '/dashboard',
+    path: "/dashboard",
   },
   {
-    name: 'Inbound',
+    name: "Inbound",
     icon: <HiOutlineDownload className="w-5 h-5" />,
-    path: '/inbound',
+    path: "/inbound",
   },
   {
-    name: 'Outbound',
+    name: "Outbound",
     icon: <HiOutlineUpload className="w-5 h-5" />,
-    children: [
-      { name: 'Create DO', path: '/outbound/create-do' },
-    ],
+    children: [{ name: "Create DO", path: "/outbound/create-do" }],
   },
   {
-    name: 'Inv Management',
+    name: "Inv Management",
     icon: <HiOutlineCollection className="w-5 h-5" />,
-    children: [
-      { name: 'Stock Overview', path: '/inventory/stock' },
-    ],
+    children: [{ name: "Stock Overview", path: "/inventory/stock" }],
   },
   {
-    name: 'Report',
+    name: "Report",
     icon: <HiOutlineDocumentReport className="w-5 h-5" />,
-    children: [
-      { name: 'Stock Report', path: '/report/stock' },
-    ],
+    children: [{ name: "Stock Report", path: "/report/stock" }],
   },
   {
-    name: 'Master Data',
+    name: "Master Data",
     icon: <HiOutlineDatabase className="w-5 h-5" />,
-    children: [
-      { name: 'Items', path: '/master/items' },
-    ],
+    children: [{ name: "Items", path: "/master/items" }],
   },
-];
+]
 
 export function Sidebar() {
-  const location = useLocation();
-  const [expandedItems, setExpandedItems] = useState<string[]>(['Outbound']);
+  const location = useLocation()
+  const [expandedItems, setExpandedItems] = useState<string[]>(["Outbound"])
 
   const toggleExpand = (name: string) => {
     setExpandedItems((prev) =>
       prev.includes(name)
         ? prev.filter((item) => item !== name)
-        : [...prev, name]
-    );
-  };
+        : [...prev, name],
+    )
+  }
 
   const isPathActive = (path?: string, children?: { path: string }[]) => {
-    if (path && location.pathname.startsWith(path)) return true;
+    if (path && location.pathname.startsWith(path)) return true
     if (children) {
-      return children.some((child) => location.pathname.startsWith(child.path));
+      return children.some((child) => location.pathname.startsWith(child.path))
     }
-    return false;
-  };
+    return false
+  }
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-60 bg-white border-r border-gray-200 flex flex-col">
+    <aside className="fixed left-0 top-0 h-screen w-60 bg-white shadow-[2px_0_10px_rgba(0,0,0,0.08)] flex flex-col z-50">
       {/* Logo */}
-      <div className="p-4 border-b border-gray-200">
+      <div className="p-4 ">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">T</span>
-          </div>
+          <img
+            src="/public/logo_tirtamas.png"
+            alt="TCL Logo"
+            className="w-8 h-8 object-contain"
+          />
           <span className="font-bold text-xl text-gray-800">TCL</span>
         </div>
       </div>
@@ -120,9 +114,9 @@ export function Sidebar() {
       <nav className="flex-1 overflow-y-auto px-3">
         <ul className="space-y-1">
           {menuItems.map((item) => {
-            const isActive = isPathActive(item.path, item.children);
-            const isExpanded = expandedItems.includes(item.name);
-            const hasChildren = item.children && item.children.length > 0;
+            const isActive = isPathActive(item.path, item.children)
+            const isExpanded = expandedItems.includes(item.name)
+            const hasChildren = item.children && item.children.length > 0
 
             return (
               <li key={item.name}>
@@ -131,11 +125,11 @@ export function Sidebar() {
                     <button
                       onClick={() => toggleExpand(item.name)}
                       className={clsx(
-                        'w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                        "w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors",
                         {
-                          'bg-primary-500 text-white': isActive,
-                          'text-gray-600 hover:bg-gray-100': !isActive,
-                        }
+                          "bg-primary-500 text-white": isActive,
+                          "text-gray-600 hover:bg-gray-100": !isActive,
+                        },
                       )}
                     >
                       <div className="flex items-center gap-3">
@@ -156,11 +150,12 @@ export function Sidebar() {
                               to={child.path}
                               className={({ isActive }) =>
                                 clsx(
-                                  'block px-3 py-2 rounded-lg text-sm transition-colors',
+                                  "block px-3 py-2 rounded-lg text-sm transition-colors",
                                   {
-                                    'text-primary-600 font-medium': isActive,
-                                    'text-gray-600 hover:bg-gray-100': !isActive,
-                                  }
+                                    "text-primary-600 font-medium": isActive,
+                                    "text-gray-600 hover:bg-gray-100":
+                                      !isActive,
+                                  },
                                 )
                               }
                             >
@@ -173,14 +168,14 @@ export function Sidebar() {
                   </>
                 ) : (
                   <NavLink
-                    to={item.path || '#'}
+                    to={item.path || "#"}
                     className={({ isActive }) =>
                       clsx(
-                        'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                        "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
                         {
-                          'bg-primary-500 text-white': isActive,
-                          'text-gray-600 hover:bg-gray-100': !isActive,
-                        }
+                          "bg-primary-500 text-white": isActive,
+                          "text-gray-600 hover:bg-gray-100": !isActive,
+                        },
                       )
                     }
                   >
@@ -189,7 +184,7 @@ export function Sidebar() {
                   </NavLink>
                 )}
               </li>
-            );
+            )
           })}
         </ul>
       </nav>
@@ -201,11 +196,15 @@ export function Sidebar() {
             SA
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-900 truncate">System Admin</p>
-            <p className="text-xs text-gray-500 truncate">systemadmin123@gmail.com</p>
+            <p className="text-sm font-medium text-gray-900 truncate">
+              System Admin
+            </p>
+            <p className="text-xs text-gray-500 truncate">
+              systemadmin123@gmail.com
+            </p>
           </div>
         </div>
       </div>
     </aside>
-  );
+  )
 }

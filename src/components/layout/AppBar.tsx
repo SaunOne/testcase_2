@@ -1,24 +1,19 @@
-import { HiOutlineBell } from 'react-icons/hi';
+import { HiOutlineBell } from "react-icons/hi"
 
 interface AppBarProps {
-  breadcrumb?: { label: string; href?: string }[];
+  breadcrumb?: { label: string; href?: string }[]
 }
 
 export function AppBar({ breadcrumb = [] }: AppBarProps) {
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
+    <header className="sticky top-0 z-40 h-16 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.08)] flex items-center justify-between px-6">
       {/* Breadcrumb */}
       <nav className="flex items-center space-x-2 text-sm">
         {breadcrumb.map((item, index) => (
           <div key={index} className="flex items-center">
-            {index > 0 && (
-              <span className="mx-2 text-gray-400">&gt;</span>
-            )}
+            {index > 0 && <span className="mx-2 text-gray-400">&gt;</span>}
             {item.href ? (
-              <a
-                href={item.href}
-                className="text-gray-500 hover:text-gray-700"
-              >
+              <a href={item.href} className="text-gray-500 hover:text-gray-700">
                 {item.label}
               </a>
             ) : (
@@ -36,5 +31,5 @@ export function AppBar({ breadcrumb = [] }: AppBarProps) {
         </button>
       </div>
     </header>
-  );
+  )
 }
